@@ -2,9 +2,8 @@
 
 import Image from 'next/image';
 import { useState } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion } from 'framer-motion';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
-import { Card, CardContent } from '@/components/ui/card';
 import { ExternalLink, Github, GraduationCap, Briefcase, Code2, Award, FolderKanban, Calendar, MapPin, Search } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { cn } from '@/lib/utils';
@@ -111,7 +110,6 @@ const certificates = [
 
 export function ResumeSection() {
     const [hoveredProject, setHoveredProject] = useState<number | null>(null);
-    const [activeTab, setActiveTab] = useState('education');
 
     const tabItems = [
         { id: 'education', label: 'Education', icon: GraduationCap },
@@ -138,7 +136,7 @@ export function ResumeSection() {
                     <div className="w-24 h-1.5 bg-blue-600 mx-auto rounded-full mb-8 shadow-[0_0_15px_rgba(37,99,235,0.4)]"></div>
                 </motion.div>
 
-                <Tabs defaultValue="education" className="w-full" onValueChange={setActiveTab}>
+                <Tabs defaultValue="education" className="w-full">
                     <div className="flex justify-center mb-12">
                         <TabsList className="bg-white/5 border border-white/10 p-1 rounded-2xl h-auto flex-wrap justify-center">
                             {tabItems.map((tab) => (
