@@ -5,456 +5,344 @@ import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { Card, CardContent } from '@/components/ui/card';
-import { ExternalLink, Github } from 'lucide-react';
+import { ExternalLink, Github, GraduationCap, Briefcase, Code2, Award, FolderKanban, Calendar, MapPin, Search } from 'lucide-react';
+import { Button } from '@/components/ui/button';
+import { cn } from '@/lib/utils';
 
 const education = [
     {
-        degree: 'Informatics Engineering - S1',
-        institution: 'BOROBUDUR UNIVERSITY',
-        period: '2021 - NOW',
-        description: 'Jl. Raya Kalimalang, Cipinang Melayu, Kec. Makasar, Kota Jakarta Timur, DKI Jakarta.',
+        degree: 'S1 Informatics Engineering',
+        institution: 'Borobudur University',
+        period: '2021 - Present',
+        location: 'Jakarta Timur, Indonesia',
+        description: 'Focusing on software development, algorithms, and system architecture.',
     },
     {
         degree: 'Science - Biology',
-        institution: 'SMAN 1 PANGKALANBARU',
+        institution: 'SMAN 1 Pangkalanbaru',
         period: '2017 - 2019',
-        description: 'Dul, Kec. Pangkalan Baru, Kab. Bangka Tengah, Kep. Bangka Belitung',
-    },
-    {
-        degree: '-',
-        institution: 'SMPN 2 PANGKALANBARU',
-        period: '2014 - 2016',
-        description: 'Depan Mako Brimob Polda Kep. Babel, Batu Belubang, Kec. Pangkalan Baru, Kab. Bangka Tengah, Kep. Bangka Belitung.',
-    },
-    {
-        degree: '-',
-        institution: 'SDN 11 PANGKALANBARU',
-        period: '2011 - 2013',
-        description: 'Tj. Gn. Kec. Pangkalan Baru, Kab. Bangka Tengah, Kep. Bangka Belitung.',
+        location: 'Bangka Tengah, Indonesia',
+        description: 'High school education with a focus on natural sciences.',
     },
 ];
 
 const experience = [
     {
-        title: 'Junior Front-end Web Developer',
-        company: 'FREELANCER',
-        period: '2025 - NOW',
-        description: 'web developers who are just starting out in the front end field, who are responsible for building and designing the visual appearance (user interface) of a website or web application. They focus on client-side programming languages, such as HTML, CSS, and JavaScript, to create interactive and responsive user experiences.',
+        title: 'Junior Front-end Developer',
+        company: 'Freelance',
+        period: '2025 - Present',
+        location: 'Remote',
+        description: 'Building responsive and interactive user interfaces using modern web technologies. Focused on creating seamless user experiences and optimizing performance.',
     },
 ];
 
 const skills = [
-    {
-        image: '/assets/skills/html.png',
-        name: 'HTML',
-    },
-    {
-        image: '/assets/skills/css.png',
-        name: 'CSS',
-    },
-    {
-        image: '/assets/skills/javascript.png',
-        name: 'JavaScript',
-    },
-    {
-        image: '/assets/skills/php.png',
-        name: 'PHP',
-    },
-    {
-        image: '/assets/skills/react.png',
-        name: 'React',
-    },
-    {
-        image: '/assets/skills/next js.png',
-        name: 'Next JS',
-    },
-    {
-        image: '/assets/skills/laravel.png',
-        name: 'Laravel',
-    },
-    {
-        image: '/assets/skills/tailwindcss.png',
-        name: 'TailwindCSS',
-    },
-    {
-        image: '/assets/skills/bootstrap.png',
-        name: 'Bootstrap',
-    },
-    {
-        image: '/assets/skills/daisyui.png',
-        name: 'Daisy UI',
-    },
-    {
-        image: '/assets/skills/material ui.png',
-        name: 'Material UI',
-    },
-    {
-        image: '/assets/skills/git.png',
-        name: 'GIT',
-    },
-    {
-        image: '/assets/skills/mysql.png',
-        name: 'MySQL',
-    },
+    { image: '/assets/skills/html.png', name: 'HTML' },
+    { image: '/assets/skills/css.png', name: 'CSS' },
+    { image: '/assets/skills/javascript.png', name: 'JavaScript' },
+    { image: '/assets/skills/php.png', name: 'PHP' },
+    { image: '/assets/skills/react.png', name: 'React' },
+    { image: '/assets/skills/next js.png', name: 'Next JS' },
+    { image: '/assets/skills/laravel.png', name: 'Laravel' },
+    { image: '/assets/skills/tailwindcss.png', name: 'TailwindCSS' },
+    { image: '/assets/skills/bootstrap.png', name: 'Bootstrap' },
+    { image: '/assets/skills/git.png', name: 'GIT' },
+    { image: '/assets/skills/mysql.png', name: 'MySQL' },
 ];
 
 const projects = [
     {
         id: 1,
         title: 'Pondok Burger',
-        description: 'Pondok Burger online — fast ordering experience and lightweight design based on HTML & CSS.',
+        description: 'A fast-loading, lightweight landing page for a burger shop built with vanilla technologies.',
         image: '/assets/projects/projects-pondok-burger.jpg',
-        category: 'Web Application',
+        category: 'Web Design',
         link: '#',
         github: '#',
     },
     {
         id: 2,
         title: 'Online Store',
-        description: 'A modern e-commerce website, built with Laravel 11 and modern TailwindCSS design.',
+        description: 'A modern e-commerce platform featuring product management and a clean shopping experience.',
         image: '/assets/projects/projects-toko-online.jpg',
-        category: 'Web Application',
+        category: 'Full Stack',
         link: '#',
         github: '#',
     }
-]
+];
 
-const certificate = [
+const certificates = [
     {
         image: '/assets/certificates/Laode   Farhan Fadilah_page-0001.jpg',
-        degree: 'Kampus Merdeka',
-        institution: 'Teknologi Informasi Institut Shanti Bhuana',
-        period: 'May 06, 2023',
-        description: 'Peran Teknologi Artificial Intelligence Untuk Menunjang Pekerjaan',
+        title: 'Artificial Intelligence in Work',
+        issuer: 'Institut Shanti Bhuana',
+        date: 'May 2023',
+        description: 'Kampus Merdeka Program - The Role of Artificial Intelligence Technology in Supporting Work.',
     },
-
-    {
-        image: '/assets/certificates/Certificate-of-Completion-Introduction-to-Information-Security_page-0001.jpg',
-        degree: 'Cyber Academy',
-        institution: 'Cyber Academy Indonesia',
-        period: 'May 04, 2025',
-        description: 'Introduction to Information Security Course',
-    },
-
-    {
-        image: '/assets/certificates/Certificate-of-Completion-Classical-Cryptography-for-Beginner_page-0001.jpg',
-        degree: 'Cyber Academy',
-        institution: 'Cyber Academy Indonesia',
-        period: 'May 22, 2025',
-        description: 'Classical Cryptography for Beginner Course',
-    },
-
-    {
-        image: '/assets/certificates/sertifikat_course_123_5018543_140625225600_page-0001.jpg',
-        degree: 'Dicoding Indonesia',
-        institution: 'Dicoding Indonesia',
-        period: 'Jun 14, 2025',
-        description: 'Belajar Dasar Pemrograman Web',
-    },
-
     {
         image: '/assets/certificates/frontend_developer_react certificate_page-0001.jpg',
-        degree: 'HackerRank',
-        institution: 'HackerRank',
-        period: 'Jun 15, 2025',
-        description: 'Frontend Developer (React)',
+        title: 'Frontend Developer (React)',
+        issuer: 'HackerRank',
+        date: 'June 2025',
+        description: 'Certification for advanced React.js development skills.',
     },
-
     {
-        degree: 'FreeCodeCamp',
-        institution: 'FreeCodeCamp',
-        period: 'Jun 20, 2025',
-        description: 'Responsive Web Design',
-    }
-]
+        image: '/assets/certificates/sertifikat_course_123_5018543_140625225600_page-0001.jpg',
+        title: 'Basic Web Programming',
+        issuer: 'Dicoding Indonesia',
+        date: 'June 2025',
+        description: 'Fundamental web development certification.',
+    },
+    {
+        image: '/assets/certificates/Certificate-of-Completion-Introduction-to-Information-Security_page-0001.jpg',
+        title: 'Information Security',
+        issuer: 'Cyber Academy',
+        date: 'May 2025',
+        description: 'Introduction to information security concepts.',
+    },
+    {
+        image: '/assets/certificates/Certificate-of-Completion-Classical-Cryptography-for-Beginner_page-0001.jpg',
+        title: 'Classical Cryptography',
+        issuer: 'Cyber Academy Indonesia',
+        date: 'May 2025',
+        description: 'Classical Cryptography for Beginner Course - Mastering fundamental encryption techniques.',
+    },
+];
 
 export function ResumeSection() {
     const [hoveredProject, setHoveredProject] = useState<number | null>(null);
-    const [showAlert, setShowAlert] = useState(false);
+    const [activeTab, setActiveTab] = useState('education');
 
-    const handleVisitClick = () => {
-        setShowAlert(true);
-        setTimeout(() => {
-            setShowAlert(false);
-        }, 3000); // alert hilang setelah 3 detik
-    };
-
-    const filteredProjects = projects;
+    const tabItems = [
+        { id: 'education', label: 'Education', icon: GraduationCap },
+        { id: 'experience', label: 'Experience', icon: Briefcase },
+        { id: 'skills', label: 'Skills', icon: Code2 },
+        { id: 'projects', label: 'Projects', icon: FolderKanban },
+        { id: 'certificate', label: 'Certificates', icon: Award },
+    ];
 
     return (
-        <section id="resume" className="py-20 bg-gray-900">
-            <div className="container mx-auto px-4">
+        <section id="resume" className="relative py-24 bg-[#030303] overflow-hidden">
+            <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-blue-600/5 rounded-full blur-[120px] -z-10" />
+
+            <div className="container mx-auto px-6">
                 <motion.div
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.5 }}
+                    transition={{ duration: 0.6 }}
                     viewport={{ once: true }}
                     className="text-center mb-16"
                 >
-                    <h2 className="text-3xl md:text-4xl font-bold mb-4">My Resume</h2>
-                    <div className="w-20 h-1 bg-blue-500 mx-auto mb-6"></div>
-                    <p className="text-gray-400 max-w-2xl mx-auto">
-                        My educational background, professional experience, and technical skills that
-                        enable me to deliver exceptional results.
-                    </p>
+                    <span className="text-blue-500 font-mono text-sm tracking-widest uppercase mb-3 block">My Journey</span>
+                    <h2 className="text-4xl md:text-5xl font-bold mb-6 text-white tracking-tight">Resume & Works</h2>
+                    <div className="w-24 h-1.5 bg-blue-600 mx-auto rounded-full mb-8 shadow-[0_0_15px_rgba(37,99,235,0.4)]"></div>
                 </motion.div>
 
-                <Tabs
-                    defaultValue="education"
-                    className="w-full"
-                >
-                    <TabsList className="grid grid-cols-5 gap-1 w-full max-w-md mx-auto mb-10 bg-blue-500">
-                        <TabsTrigger value="education">Education</TabsTrigger>
-                        <TabsTrigger value="experience">Experience</TabsTrigger>
-                        <TabsTrigger value="skills">Skills</TabsTrigger>
-                        <TabsTrigger value="projects">Projects</TabsTrigger>
-                        <TabsTrigger value="certificate">Certificate</TabsTrigger>
-                    </TabsList>
+                <Tabs defaultValue="education" className="w-full" onValueChange={setActiveTab}>
+                    <div className="flex justify-center mb-12">
+                        <TabsList className="bg-white/5 border border-white/10 p-1 rounded-2xl h-auto flex-wrap justify-center">
+                            {tabItems.map((tab) => (
+                                <TabsTrigger 
+                                    key={tab.id} 
+                                    value={tab.id}
+                                    className={cn(
+                                        "px-6 py-3 rounded-xl transition-all duration-300 gap-2 data-[state=active]:bg-blue-600 data-[state=active]:text-white",
+                                        "text-gray-400 hover:text-white"
+                                    )}
+                                >
+                                    <tab.icon size={18} />
+                                    <span className="hidden sm:inline">{tab.label}</span>
+                                </TabsTrigger>
+                            ))}
+                        </TabsList>
+                    </div>
 
-                    <TabsContent value="education">
-                        <AnimatePresence mode="wait">
-                            <motion.div
-                                key="education"
-                                initial={{ opacity: 0, y: 20 }}
-                                animate={{ opacity: 1, y: 0 }}
-                                exit={{ opacity: 0, y: -20 }}
-                                transition={{ duration: 0.5 }}
-                                className="space-y-6"
-                            >
-                                {education.map((item, index) => (
-                                    <motion.div
-                                        key={index}
-                                        initial={{ opacity: 0, y: 20 }}
-                                        animate={{ opacity: 1, y: 0 }}
-                                        transition={{ duration: 0.5, delay: index * 0.1 }}
-                                    >
-                                        <Card className="bg-gray-800 border-none">
-                                            <CardContent className="p-6">
-                                                <div className="flex flex-col md:flex-row md:items-start justify-between mb-4">
-                                                    <div>
-                                                        <h3 className="text-xl font-semibold text-white">{item.degree}</h3>
-                                                        <p className="text-blue-400 text-sm">{item.institution}</p>
-                                                    </div>
-                                                    <div className="bg-blue-500/20 text-blue-300 px-3 py-1 rounded-full text-sm mt-2 md:mt-0 inline-block">
-                                                        {item.period}
-                                                    </div>
+                    {/* Education Tab */}
+                    <TabsContent value="education" className="mt-0">
+                        <div className="max-w-4xl mx-auto space-y-8">
+                            {education.map((item, index) => (
+                                <motion.div
+                                    key={index}
+                                    initial={{ opacity: 0, x: -20 }}
+                                    animate={{ opacity: 1, x: 0 }}
+                                    transition={{ delay: index * 0.1 }}
+                                    className="relative pl-8 border-l-2 border-white/10"
+                                >
+                                    <div className="absolute left-[-9px] top-0 w-4 h-4 rounded-full bg-blue-600 border-4 border-[#030303]" />
+                                    <div className="bg-white/5 border border-white/10 p-6 rounded-2xl hover:border-blue-500/30 transition-colors group">
+                                        <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-4">
+                                            <div>
+                                                <h3 className="text-xl font-bold text-white group-hover:text-blue-400 transition-colors">{item.degree}</h3>
+                                                <div className="flex items-center gap-2 text-blue-500 mt-1">
+                                                    <span className="font-medium">{item.institution}</span>
                                                 </div>
-                                                <p className="text-gray-400">{item.description}</p>
-                                            </CardContent>
-                                        </Card>
-                                    </motion.div>
-                                ))}
-                            </motion.div>
-                        </AnimatePresence>
+                                            </div>
+                                            <div className="flex flex-col items-end gap-2">
+                                                <span className="px-3 py-1 bg-blue-600/10 text-blue-400 rounded-full text-xs font-bold border border-blue-600/20">
+                                                    {item.period}
+                                                </span>
+                                                <div className="flex items-center gap-1 text-xs text-gray-500">
+                                                    <MapPin size={12} />
+                                                    {item.location}
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <p className="text-gray-400 leading-relaxed">{item.description}</p>
+                                    </div>
+                                </motion.div>
+                            ))}
+                        </div>
                     </TabsContent>
 
-                    <TabsContent value="experience">
-                        <AnimatePresence mode="wait">
-                            <motion.div
-                                key="experience"
-                                initial={{ opacity: 0, y: 20 }}
-                                animate={{ opacity: 1, y: 0 }}
-                                exit={{ opacity: 0, y: -20 }}
-                                transition={{ duration: 0.5 }}
-                                className="space-y-6"
-                            >
-                                {experience.map((item, index) => (
-                                    <motion.div
-                                        key={index}
-                                        initial={{ opacity: 0, y: 20 }}
-                                        animate={{ opacity: 1, y: 0 }}
-                                        transition={{ duration: 0.5, delay: index * 0.1 }}
-                                    >
-                                        <Card className="bg-gray-800 border-none">
-                                            <CardContent className="p-6">
-                                                <div className="flex flex-col md:flex-row md:items-start justify-between mb-4">
-                                                    <div>
-                                                        <h3 className="text-xl font-semibold text-white">{item.title}</h3>
-                                                        <p className="text-blue-400 text-sm">{item.company}</p>
-                                                    </div>
-                                                    <div className="bg-blue-500/20 text-blue-300 px-3 py-1 rounded-full text-sm mt-2 md:mt-0 inline-block">
-                                                        {item.period}
-                                                    </div>
+                    {/* Experience Tab */}
+                    <TabsContent value="experience" className="mt-0">
+                        <div className="max-w-4xl mx-auto space-y-8">
+                            {experience.map((item, index) => (
+                                <motion.div
+                                    key={index}
+                                    initial={{ opacity: 0, x: -20 }}
+                                    animate={{ opacity: 1, x: 0 }}
+                                    transition={{ delay: index * 0.1 }}
+                                    className="relative pl-8 border-l-2 border-white/10"
+                                >
+                                    <div className="absolute left-[-9px] top-0 w-4 h-4 rounded-full bg-blue-500 border-4 border-[#030303]" />
+                                    <div className="bg-white/5 border border-white/10 p-6 rounded-2xl hover:border-blue-500/30 transition-colors group">
+                                        <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-4">
+                                            <div>
+                                                <h3 className="text-xl font-bold text-white group-hover:text-blue-400 transition-colors">{item.title}</h3>
+                                                <p className="text-blue-500 font-medium mt-1">{item.company}</p>
+                                            </div>
+                                            <div className="flex flex-col items-end gap-2">
+                                                <span className="px-3 py-1 bg-blue-600/10 text-blue-400 rounded-full text-xs font-bold border border-blue-600/20">
+                                                    {item.period}
+                                                </span>
+                                                <div className="flex items-center gap-1 text-xs text-gray-500">
+                                                    <MapPin size={12} />
+                                                    {item.location}
                                                 </div>
-                                                <p className="text-gray-400">{item.description}</p>
-                                            </CardContent>
-                                        </Card>
-                                    </motion.div>
-                                ))}
-                            </motion.div>
-                        </AnimatePresence>
+                                            </div>
+                                        </div>
+                                        <p className="text-gray-400 leading-relaxed">{item.description}</p>
+                                    </div>
+                                </motion.div>
+                            ))}
+                        </div>
                     </TabsContent>
 
-                    <TabsContent value="skills">
-                        <AnimatePresence mode="wait">
-                            <motion.div
-                                key="skills"
-                                initial={{ opacity: 0, y: 20 }}
-                                animate={{ opacity: 1, y: 0 }}
-                                exit={{ opacity: 0, y: -20 }}
-                                transition={{ duration: 0.5 }}
-                                className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-1"
-                            >
-                                {skills.map((skill, index) => (
-                                    <motion.div
-                                        key={index}
-                                        initial={{ opacity: 0, y: 20 }}
-                                        animate={{ opacity: 1, y: 0 }}
-                                        transition={{ duration: 0.5, delay: index * 0.05 }}
-                                        className="flex flex-col items-center"
-                                    >
-                                        <div className="w-28 h-28 mb-4 relative bg-gray-800 rounded-lg flex flex-col items-center justify-center">
+                    {/* Skills Tab */}
+                    <TabsContent value="skills" className="mt-0">
+                        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-6">
+                            {skills.map((skill, index) => (
+                                <motion.div
+                                    key={index}
+                                    initial={{ opacity: 0, scale: 0.8 }}
+                                    animate={{ opacity: 1, scale: 1 }}
+                                    transition={{ delay: index * 0.05 }}
+                                    className="group relative"
+                                >
+                                    <div className="bg-white/5 border border-white/10 rounded-2xl p-6 flex flex-col items-center justify-center gap-4 transition-all duration-300 group-hover:bg-white/[0.08] group-hover:border-blue-500/50 group-hover:-translate-y-1">
+                                        <div className="relative w-12 h-12 transition-transform duration-300 group-hover:scale-110">
                                             <Image
                                                 src={skill.image}
                                                 alt={skill.name}
-                                                width={52}
-                                                height={52}
-                                                className="object-contain mb-2"
-                                            />
-                                            <p className="text-white text-sm text-center">{skill.name}</p>
-                                        </div>
-                                    </motion.div>
-                                ))}
-                            </motion.div>
-                        </AnimatePresence>
-                    </TabsContent>
-
-
-                    <TabsContent value="projects">
-                        <AnimatePresence mode="wait">
-                            <motion.div
-                                key="projects"
-                                initial={{ opacity: 0, y: 20 }}
-                                animate={{ opacity: 1, y: 0 }}
-                                exit={{ opacity: 0, y: -20 }}
-                                transition={{ duration: 0.5 }}
-                                className="grid grid-cols-1 md:grid-cols-2 gap-8"
-                            >
-                            </motion.div>
-
-                            <motion.div
-                                layout
-                                className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
-                            >
-                                {filteredProjects.map((project) => (
-                                    <motion.div
-                                        key={project.id}
-                                        layout
-                                        initial={{ opacity: 0, scale: 0.9 }}
-                                        animate={{ opacity: 1, scale: 1 }}
-                                        exit={{ opacity: 0, scale: 0.9 }}
-                                        transition={{ duration: 0.5 }}
-                                        className="bg-gray-800 rounded-xl overflow-hidden group"
-                                        onHoverStart={() => setHoveredProject(project.id)}
-                                        onHoverEnd={() => setHoveredProject(null)}
-                                    >
-                                        <div className="relative h-64 overflow-hidden">
-                                            <Image
-                                                src={project.image}
-                                                alt={project.title}
                                                 fill
-                                                className={`object-cover transition-transform duration-500 ${hoveredProject === project.id ? 'scale-110' : 'scale-100'
-                                                    }`}
+                                                className="object-contain"
                                             />
-                                            <div className={`absolute inset-0 bg-blue-500/80 flex items-center justify-center gap-4 transition-opacity duration-300 ${hoveredProject === project.id ? 'opacity-100' : 'opacity-0'
-                                                }`}>
-                                                <a
-                                                    href={project.link}
-                                                    target="_blank"
-                                                    rel="noopener noreferrer"
-                                                    className="bg-white text-blue-600 p-3 rounded-full hover:bg-gray-100 transition"
-                                                >
-                                                    <ExternalLink className="h-5 w-5" />
-                                                </a>
-                                                <a
-                                                    href={project.github}
-                                                    target="_blank"
-                                                    rel="noopener noreferrer"
-                                                    className="bg-white text-blue-600 p-3 rounded-full hover:bg-gray-100 transition"
-                                                >
-                                                    <Github className="h-5 w-5" />
-                                                </a>
-                                            </div>
                                         </div>
-                                        <div className="p-6">
-                                            <div className="inline-block px-3 py-1 text-xs font-semibold text-white bg-blue-500 rounded-full mb-3">
-                                                {project.category}
-                                            </div>
-                                            <h3 className="text-xl font-semibold mb-2">{project.title}</h3>
-                                            <p className="text-gray-400 mb-4">{project.description}</p>
-                                        </div>
-                                    </motion.div>
-                                ))}
-                            </motion.div>
-                        </AnimatePresence>
+                                        <span className="text-sm font-medium text-gray-300 group-hover:text-white">{skill.name}</span>
+                                    </div>
+                                </motion.div>
+                            ))}
+                        </div>
                     </TabsContent>
 
-                    <TabsContent value="certificate">
-                        <AnimatePresence mode="wait">
-                            <motion.div
-                                key="certificate"
-                                initial={{ opacity: 0, y: 20 }}
-                                animate={{ opacity: 1, y: 0 }}
-                                exit={{ opacity: 0, y: -20 }}
-                                transition={{ duration: 0.5 }}
-                                className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6"
-                            >
-                                {certificate.map((item, index) => (
-                                    <motion.div
-                                        key={index}
-                                        initial={{ opacity: 0, y: 20 }}
-                                        animate={{ opacity: 1, y: 0 }}
-                                        transition={{ duration: 0.5, delay: index * 0.1 }}
-                                        className="h-full"
-                                    >
-                                        <Card className="bg-gray-800 border-none h-full">
-                                            <CardContent className="p-6 flex flex-col h-full">
-                                                <div className="flex-1">
-                                                    {item.image && (
-                                                        <img
-                                                            src={item.image}
-                                                            alt={item.degree}
-                                                            className="mb-4 rounded-md w-full h-auto"
-                                                        />
-                                                    )}
+                    {/* Projects Tab */}
+                    <TabsContent value="projects" className="mt-0">
+                        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8 max-w-5xl mx-auto">
+                            {projects.map((project) => (
+                                <motion.div
+                                    key={project.id}
+                                    initial={{ opacity: 0, y: 20 }}
+                                    animate={{ opacity: 1, y: 0 }}
+                                    className="group relative bg-white/5 border border-white/10 rounded-[2rem] overflow-hidden transition-all duration-500 hover:border-white/20"
+                                    onHoverStart={() => setHoveredProject(project.id)}
+                                    onHoverEnd={() => setHoveredProject(null)}
+                                >
+                                    <div className="relative h-64 overflow-hidden">
+                                        <Image
+                                            src={project.image}
+                                            alt={project.title}
+                                            fill
+                                            className={cn(
+                                                "object-cover transition-transform duration-700",
+                                                hoveredProject === project.id ? "scale-110" : "scale-100"
+                                            )}
+                                        />
+                                        <div className={cn(
+                                            "absolute inset-0 bg-blue-600/80 backdrop-blur-sm flex items-center justify-center gap-4 transition-all duration-500",
+                                            hoveredProject === project.id ? "opacity-100" : "opacity-0"
+                                        )}>
+                                            <Button size="icon" className="rounded-full bg-white text-blue-600 hover:bg-gray-100">
+                                                <ExternalLink size={20} />
+                                            </Button>
+                                            <Button size="icon" className="rounded-full bg-white text-blue-600 hover:bg-gray-100">
+                                                <Github size={20} />
+                                            </Button>
+                                        </div>
+                                    </div>
+                                    <div className="p-8">
+                                        <span className="text-[10px] font-bold uppercase tracking-widest text-blue-500 mb-2 block">{project.category}</span>
+                                        <h3 className="text-2xl font-bold text-white mb-3 group-hover:text-blue-400 transition-colors">{project.title}</h3>
+                                        <p className="text-gray-400 mb-6 line-clamp-2">{project.description}</p>
+                                        <div className="flex items-center gap-2 text-sm font-bold text-white group-hover:gap-4 transition-all duration-300">
+                                            View Project
+                                            <div className="h-[1px] w-12 bg-blue-600" />
+                                        </div>
+                                    </div>
+                                </motion.div>
+                            ))}
+                        </div>
+                    </TabsContent>
 
-                                                    <div className="relative mb-4"> {/* Parent wajib relative */}
-                                                        {/* Tanggal di pojok kanan atas */}
-                                                        <div className="absolute right-0 top-0 bg-blue-500/20 text-blue-300 px-3 py-1 rounded-full text-sm">
-                                                            {item.period}
-                                                        </div>
+                    {/* Certificates Tab */}
+                    <TabsContent value="certificate" className="mt-0">
+                        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+                            {certificates.map((cert, index) => (
+                                <motion.div
+                                    key={index}
+                                    initial={{ opacity: 0, y: 20 }}
+                                    animate={{ opacity: 1, y: 0 }}
+                                    transition={{ delay: index * 0.1 }}
+                                    className="group flex flex-col h-full bg-white/5 border border-white/10 rounded-3xl overflow-hidden hover:border-blue-500/30 transition-all"
+                                >
+                                    <div className="relative aspect-[4/3] overflow-hidden grayscale group-hover:grayscale-0 transition-all duration-500">
+                                        <Image
+                                            src={cert.image}
+                                            alt={cert.title}
+                                            fill
+                                            className="object-cover"
+                                        />
+                                        <div className="absolute inset-0 bg-black/40 group-hover:bg-transparent transition-colors" />
+                                    </div>
+                                    <div className="p-6 flex flex-col flex-1">
+                                        <div className="flex items-center justify-between mb-3">
+                                            <span className="text-[10px] font-bold uppercase tracking-widest text-blue-500">{cert.issuer}</span>
+                                            <div className="flex items-center gap-1 text-[10px] text-gray-500 uppercase tracking-widest">
+                                                <Calendar size={10} />
+                                                {cert.date}
+                                            </div>
+                                        </div>
+                                        <h3 className="text-lg font-bold text-white mb-2 group-hover:text-blue-400 transition-colors">{cert.title}</h3>
+                                        <p className="text-sm text-gray-400 line-clamp-2 mb-6">{cert.description}</p>
 
-                                                        {/* Konten utama */}
-                                                        <h3 className="text-xl font-semibold text-white">{item.degree}</h3>
-                                                        <p className="text-blue-400 text-sm mt-4">{item.institution}</p>
-                                                    </div>
-
-                                                    <p className="text-gray-400 mb-4">{item.description}</p>
-                                                </div>
-
-                                                {/* Bagian bawah: tombol visit dan alert */}
-                                                <div>
-                                                    {showAlert && (
-                                                        <div className="fixed top-5 right-5 z-50 bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded-lg shadow-md w-[320px]">
-                                                            <strong className="font-bold">Hak Akses Anda Dibatasi!</strong>
-                                                            <span className="block text-sm mt-1">
-                                                                Anda tidak dapat melihat certificate tanpa izin dari developer Laode F. Fadilah.
-                                                            </span>
-                                                        </div>
-                                                    )}
-                                                    <button
-                                                        onClick={handleVisitClick}
-                                                        className="px-4 py-2 bg-blue-600 text-white rounded-lg text-sm hover:bg-blue-700 transition"
-                                                    >
-                                                        Visit
-                                                    </button>
-                                                </div>
-                                            </CardContent>
-                                        </Card>
-                                    </motion.div>
-                                ))}
-                            </motion.div>
-                        </AnimatePresence>
+                                        <Button variant="outline" className="mt-auto w-full border-white/10 hover:bg-blue-600 hover:text-white rounded-xl group/btn">
+                                            <Search size={16} className="mr-2 group-hover/btn:scale-110 transition-transform" />
+                                            View Credential
+                                        </Button>
+                                    </div>
+                                </motion.div>
+                            ))}
+                        </div>
                     </TabsContent>
                 </Tabs>
             </div>
