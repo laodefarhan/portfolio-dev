@@ -19,13 +19,21 @@ export function HeroSection() {
     const [typedText, setTypedText] = useState('');
     const [currentWordIndex, setCurrentWordIndex] = useState(0);
     const [isDeleting, setIsDeleting] = useState(false);
+    const [isMounted, setIsMounted] = useState(false);
 
     const words = useMemo(() => ['Full Stack Developer', 'Creative Freelancer', 'Problem Solver'], []);
     const typingSpeed = 100;
     const deletingSpeed = 50;
     const pauseTime = 2000;
 
+    // Set mounted flag on client side only
     useEffect(() => {
+        setIsMounted(true);
+    }, []);
+
+    useEffect(() => {
+        if (!isMounted) return;
+
         const handleTyping = () => {
             const currentWord = words[currentWordIndex];
 
@@ -49,7 +57,7 @@ export function HeroSection() {
         );
 
         return () => clearTimeout(timer);
-    }, [typedText, currentWordIndex, isDeleting, words]);
+    }, [typedText, currentWordIndex, isDeleting, words, isMounted]);
 
     return (
         <section id="home" className="relative min-h-screen flex items-center pt-24 pb-12 overflow-hidden bg-[#030303]">
@@ -68,7 +76,7 @@ export function HeroSection() {
                         className="lg:w-3/5 text-center lg:text-left"
                         initial={{ opacity: 0, y: 30 }}
                         animate={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+                        transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] as const }}
                     >
                         <motion.div 
                             initial={{ opacity: 0, x: -20 }}
@@ -140,7 +148,7 @@ export function HeroSection() {
                         className="lg:w-2/5 relative"
                         initial={{ opacity: 0, scale: 0.8, rotate: 5 }}
                         animate={{ opacity: 1, scale: 1, rotate: 0 }}
-                        transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
+                        transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] as const }}
                     >
                         <div className="relative w-72 h-72 md:w-[450px] md:h-[450px] mx-auto group">
                             {/* Decorative Rings */}
@@ -156,6 +164,7 @@ export function HeroSection() {
                                     src="/assets/hero-profile-laode-farhan-fadilah.jpg"
                                     alt="Laode Farhan Fadilah"
                                     fill
+                                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 40vw"
                                     className="object-cover scale-110 hover:scale-125 transition-transform duration-700"
                                     priority
                                 />

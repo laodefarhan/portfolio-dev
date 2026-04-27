@@ -61,6 +61,7 @@ export function AboutSection() {
                                     src="/assets/about-profile-laode-farhan-fadilah.jpg"
                                     alt="Laode Farhan Fadilah"
                                     fill
+                                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 40vw"
                                     className="object-cover transform transition-transform duration-700 group-hover:scale-110"
                                 />
                             </div>

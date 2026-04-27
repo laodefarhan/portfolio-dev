@@ -11,6 +11,7 @@ import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from '
 import { Mail, MapPin, Phone, Send, MessageSquare, ExternalLink } from 'lucide-react';
 import { toast } from 'sonner';
 import { InstagramIcon, TikTokIcon, GitHubIcon, Linkedin } from '@/components/icons';
+import { ClientOnly } from '../client-only';
 
 const formSchema = z.object({
     name: z.string().min(2, { message: 'Name must be at least 2 characters' }),
@@ -153,18 +154,55 @@ export function ContactSection() {
                             <MessageSquare size={120} />
                         </div>
 
-                        <Form {...form}>
-                            <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6 relative z-10">
-                                <div className="grid md:grid-cols-2 gap-6">
+                        <ClientOnly>
+                            <Form {...form}>
+                                <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6 relative z-10">
+                                    <div className="grid md:grid-cols-2 gap-6">
+                                        <FormField
+                                            control={form.control}
+                                            name="name"
+                                            render={({ field }) => (
+                                                <FormItem>
+                                                    <FormLabel className="text-gray-400">Full Name</FormLabel>
+                                                    <FormControl>
+                                                        <Input
+                                                            placeholder="Laode F. Fadilah"
+                                                            className="h-14 bg-[#0a0a0a] border-white/10 focus:border-blue-500 focus:ring-blue-500/20 rounded-xl"
+                                                            {...field}
+                                                        />
+                                                    </FormControl>
+                                                    <FormMessage />
+                                                </FormItem>
+                                            )}
+                                        />
+                                        <FormField
+                                            control={form.control}
+                                            name="email"
+                                            render={({ field }) => (
+                                                <FormItem>
+                                                    <FormLabel className="text-gray-400">Email Address</FormLabel>
+                                                    <FormControl>
+                                                        <Input
+                                                            placeholder="fiklaodefarhanfadilah@gmail.com"
+                                                            className="h-14 bg-[#0a0a0a] border-white/10 focus:border-blue-500 focus:ring-blue-500/20 rounded-xl"
+                                                            {...field}
+                                                        />
+                                                    </FormControl>
+                                                    <FormMessage />
+                                                </FormItem>
+                                            )}
+                                        />
+                                    </div>
+
                                     <FormField
                                         control={form.control}
-                                        name="name"
+                                        name="subject"
                                         render={({ field }) => (
                                             <FormItem>
-                                                <FormLabel className="text-gray-400">Full Name</FormLabel>
+                                                <FormLabel className="text-gray-400">Subject</FormLabel>
                                                 <FormControl>
                                                     <Input
-                                                        placeholder="Laode F. Fadilah"
+                                                        placeholder="Project Inquiry"
                                                         className="h-14 bg-[#0a0a0a] border-white/10 focus:border-blue-500 focus:ring-blue-500/20 rounded-xl"
                                                         {...field}
                                                     />
@@ -173,70 +211,35 @@ export function ContactSection() {
                                             </FormItem>
                                         )}
                                     />
+
                                     <FormField
                                         control={form.control}
-                                        name="email"
+                                        name="message"
                                         render={({ field }) => (
                                             <FormItem>
-                                                <FormLabel className="text-gray-400">Email Address</FormLabel>
+                                                <FormLabel className="text-gray-400">Your Message</FormLabel>
                                                 <FormControl>
-                                                    <Input
-                                                        placeholder="fiklaodefarhanfadilah@gmail.com"
-                                                        className="h-14 bg-[#0a0a0a] border-white/10 focus:border-blue-500 focus:ring-blue-500/20 rounded-xl"
+                                                    <Textarea
+                                                        placeholder="Tell me about your project..."
+                                                        className="bg-[#0a0a0a] border-white/10 focus:border-blue-500 focus:ring-blue-500/20 rounded-xl min-h-[160px] resize-none py-4"
                                                         {...field}
                                                     />
-                                                </FormControl>
+                                                    </FormControl>
                                                 <FormMessage />
                                             </FormItem>
                                         )}
                                     />
-                                </div>
 
-                                <FormField
-                                    control={form.control}
-                                    name="subject"
-                                    render={({ field }) => (
-                                        <FormItem>
-                                            <FormLabel className="text-gray-400">Subject</FormLabel>
-                                            <FormControl>
-                                                <Input
-                                                    placeholder="Project Inquiry"
-                                                    className="h-14 bg-[#0a0a0a] border-white/10 focus:border-blue-500 focus:ring-blue-500/20 rounded-xl"
-                                                    {...field}
-                                                />
-                                            </FormControl>
-                                            <FormMessage />
-                                        </FormItem>
-                                    )}
-                                />
-
-                                <FormField
-                                    control={form.control}
-                                    name="message"
-                                    render={({ field }) => (
-                                        <FormItem>
-                                            <FormLabel className="text-gray-400">Your Message</FormLabel>
-                                            <FormControl>
-                                                <Textarea
-                                                    placeholder="Tell me about your project..."
-                                                    className="bg-[#0a0a0a] border-white/10 focus:border-blue-500 focus:ring-blue-500/20 rounded-xl min-h-[160px] resize-none py-4"
-                                                    {...field}
-                                                />
-                                            </FormControl>
-                                            <FormMessage />
-                                        </FormItem>
-                                    )}
-                                />
-
-                                <Button
-                                    type="submit"
-                                    className="w-full h-14 bg-blue-600 hover:bg-blue-700 text-white font-bold text-lg rounded-xl shadow-lg shadow-blue-600/20 transition-all hover:scale-[1.02] active:scale-[0.98]"
-                                >
-                                    <Send className="mr-2 h-5 w-5" /> 
-                                    Send Message
-                                </Button>
-                            </form>
-                        </Form>
+                                    <Button
+                                        type="submit"
+                                        className="w-full h-14 bg-blue-600 hover:bg-blue-700 text-white font-bold text-lg rounded-xl shadow-lg shadow-blue-600/20 transition-all hover:scale-[1.02] active:scale-[0.98]"
+                                    >
+                                        <Send className="mr-2 h-5 w-5" /> 
+                                        Send Message
+                                    </Button>
+                                </form>
+                            </Form>
+                        </ClientOnly>
                     </motion.div>
                 </div>
             </div>

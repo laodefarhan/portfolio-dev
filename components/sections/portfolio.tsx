@@ -2,7 +2,7 @@
 
 import Image from 'next/image';
 import { motion } from 'framer-motion';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { ExternalLink, Github } from 'lucide-react';
 
 const categories = ['All', 'Web', 'Mobile', 'Design', 'Branding'];
@@ -67,6 +67,11 @@ const projects = [
 export function PortfolioSection() {
     const [selectedCategory, setSelectedCategory] = useState('All');
     const [hoveredProject, setHoveredProject] = useState<number | null>(null);
+    const [mounted, setMounted] = useState(false);
+
+    useEffect(() => {
+        setMounted(true);
+    }, []);
 
     const filteredProjects = selectedCategory === 'All'
         ? projects
@@ -131,6 +136,7 @@ export function PortfolioSection() {
                                     src={project.image}
                                     alt={project.title}
                                     fill
+                                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                                     className={`object-cover transition-transform duration-500 ${hoveredProject === project.id ? 'scale-110' : 'scale-100'
                                         }`}
                                 />

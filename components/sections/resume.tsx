@@ -1,7 +1,7 @@
 'use client';
 
 import Image from 'next/image';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { ExternalLink, Github, GraduationCap, Briefcase, Code2, Award, FolderKanban, Calendar, MapPin, Search } from 'lucide-react';
@@ -110,6 +110,11 @@ const certificates = [
 
 export function ResumeSection() {
     const [hoveredProject, setHoveredProject] = useState<number | null>(null);
+    const [mounted, setMounted] = useState(false);
+
+    useEffect(() => {
+        setMounted(true);
+    }, []);
 
     const tabItems = [
         { id: 'education', label: 'Education', icon: GraduationCap },
@@ -244,6 +249,7 @@ export function ResumeSection() {
                                                 src={skill.image}
                                                 alt={skill.name}
                                                 fill
+                                                sizes="48px"
                                                 className="object-contain"
                                             />
                                         </div>
@@ -271,6 +277,7 @@ export function ResumeSection() {
                                             src={project.image}
                                             alt={project.title}
                                             fill
+                                            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                                             className={cn(
                                                 "object-cover transition-transform duration-700",
                                                 hoveredProject === project.id ? "scale-110" : "scale-100"
@@ -318,6 +325,7 @@ export function ResumeSection() {
                                             src={cert.image}
                                             alt={cert.title}
                                             fill
+                                            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                                             className="object-cover"
                                         />
                                         <div className="absolute inset-0 bg-black/40 group-hover:bg-transparent transition-colors" />

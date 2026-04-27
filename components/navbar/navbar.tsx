@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useLayoutEffect } from 'react';
 import Link from 'next/link';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Button } from '@/components/ui/button';
@@ -21,8 +21,15 @@ export function Navbar() {
     const [isScrolled, setIsScrolled] = useState(false);
     const [mobileNavOpen, setMobileNavOpen] = useState(false);
     const [activeSection, setActiveSection] = useState('home');
+    const [isMounted, setIsMounted] = useState(false);
+
+    useLayoutEffect(() => {
+        setIsMounted(true);
+    }, []);
 
     useEffect(() => {
+        if (!isMounted) return;
+
         const handleScroll = () => {
             setIsScrolled(window.scrollY > 50);
         };
@@ -54,13 +61,13 @@ export function Navbar() {
             window.removeEventListener('scroll', handleScroll);
             observer.disconnect();
         };
-    }, []);
+    }, [isMounted]);
 
     return (
         <header
             className={cn(
                 'fixed top-0 left-0 right-0 z-50 transition-all duration-500 ease-in-out',
-                isScrolled
+                isMounted && isScrolled
                     ? 'bg-black/60 backdrop-blur-xl border-b border-white/10 py-3'
                     : 'bg-transparent py-6'
             )}
@@ -119,24 +126,26 @@ export function Navbar() {
                         onClick={() => setMobileNavOpen(!mobileNavOpen)}
                     >
                         <AnimatePresence mode="wait">
-                            {mobileNavOpen ? (
-                                <motion.div
+                            {isMounted && mobileNavOpen ? (
+                                <motion.span
                                     key="close"
+                                    className="flex items-center justify-center"
                                     initial={{ opacity: 0, rotate: -90 }}
                                     animate={{ opacity: 1, rotate: 0 }}
                                     exit={{ opacity: 0, rotate: 90 }}
                                 >
                                     <X className="h-6 w-6" />
-                                </motion.div>
+                                </motion.span>
                             ) : (
-                                <motion.div
+                                <motion.span
                                     key="menu"
+                                    className="flex items-center justify-center"
                                     initial={{ opacity: 0, rotate: 90 }}
                                     animate={{ opacity: 1, rotate: 0 }}
                                     exit={{ opacity: 0, rotate: -90 }}
                                 >
                                     <Menu className="h-6 w-6" />
-                                </motion.div>
+                                </motion.span>
                             )}
                         </AnimatePresence>
                     </Button>
@@ -145,7 +154,7 @@ export function Navbar() {
 
             {/* Mobile Navigation Menu */}
             <AnimatePresence>
-                {mobileNavOpen && (
+                {isMounted && mobileNavOpen && (
                     <motion.nav
                         initial={{ opacity: 0, height: 0 }}
                         animate={{ opacity: 1, height: 'auto' }}

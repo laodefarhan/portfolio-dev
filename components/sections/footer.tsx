@@ -2,7 +2,7 @@
 
 import { ChevronUp, Mail, Phone, MapPin } from 'lucide-react';
 import Link from 'next/link';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useLayoutEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { InstagramIcon, TikTokIcon, GitHubIcon, Linkedin } from '@/components/icons';
 
@@ -23,15 +23,24 @@ const socialLinks = [
 
 export function Footer() {
     const [showScrollTop, setShowScrollTop] = useState(false);
+    const [mounted, setMounted] = useState(false);
+    const [currentYear, setCurrentYear] = useState(2025);
+
+    useLayoutEffect(() => {
+        setMounted(true);
+        setCurrentYear(new Date().getFullYear());
+    }, []);
 
     useEffect(() => {
+        if (!mounted) return;
+        
         const handleScroll = () => {
             setShowScrollTop(window.scrollY > 400);
         };
 
         window.addEventListener('scroll', handleScroll);
         return () => window.removeEventListener('scroll', handleScroll);
-    }, []);
+    }, [mounted]);
 
     const scrollToTop = () => {
         window.scrollTo({
@@ -46,7 +55,7 @@ export function Footer() {
             <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-[1px] bg-gradient-to-r from-transparent via-blue-500/50 to-transparent" />
             
             <AnimatePresence>
-                {showScrollTop && (
+                {mounted && showScrollTop && (
                     <motion.button
                         initial={{ opacity: 0, scale: 0.5, y: 20 }}
                         animate={{ opacity: 1, scale: 1, y: 0 }}
@@ -127,7 +136,7 @@ export function Footer() {
 
                 <div className="pt-10 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-6">
                     <p className="text-gray-500 text-sm">
-                        © {new Date().getFullYear()} <span className="text-gray-300">Laode F. Fadilah</span>. All rights reserved.
+                        © {currentYear} <span className="text-gray-300">Laode F. Fadilah</span>. All rights reserved.
                     </p>
                     <div className="flex gap-8 text-sm text-gray-500">
                         <Link href="#" className="hover:text-white transition-colors">Privacy Policy</Link>
