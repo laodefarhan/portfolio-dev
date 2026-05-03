@@ -54,7 +54,7 @@ const projects = [
         id: 1,
         title: 'Pondok Burger',
         description: 'A fast-loading, lightweight landing page for a burger shop built with vanilla technologies.',
-        image: '/assets/projects/projects-pondok-burger.jpg',
+        image: '/assets/projects/projects-pondok-burger-v2.jpg.jpg',
         category: 'Web Design',
         link: '#',
         github: '#',
