@@ -100,8 +100,10 @@ export function HeroSection() {
                         </h1>
 
                         <p className="text-lg md:text-xl text-gray-400 mb-10 max-w-2xl mx-auto lg:mx-0 leading-relaxed">
-                            I specialize in building exceptional digital experiences that are functional, 
-                            beautiful, and high-performing. Bringing your ideas to life with modern technologies.
+                            A results-driven <span className="text-gray-200">Junior Full Stack Developer</span> based in Jakarta, specializing in building high-performance 
+                            web applications and modern mobile solutions. I transform complex ideas into 
+                            <span className="text-gray-200"> SEO-friendly, scalable, and visually stunning digital experiences</span> using 
+                            Next.js, React, and Laravel.
                         </p>
 
                         <div className="flex flex-wrap gap-4 justify-center lg:justify-start mb-12">

@@ -59,7 +59,7 @@ export function AboutSection() {
                             <div className="relative h-full w-full rounded-[2rem] overflow-hidden border-2 border-white/10 bg-gray-900 shadow-2xl">
                                 <Image
                                     src="/assets/about-profile-laode-farhan-fadilah.jpg"
-                                    alt="Laode Farhan Fadilah"
+                                    alt="Laode Farhan Fadilah - Full Stack Developer specializing in Next.js and React"
                                     fill
                                     sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 40vw"
                                     className="object-cover transform transition-transform duration-700 group-hover:scale-110"
@@ -88,13 +88,14 @@ export function AboutSection() {
                         viewport={{ once: true }}
                     >
                         <h3 className="text-2xl font-bold text-white mb-6">
-                            Fullstack Developer & <span className="text-blue-500">Problem Solver</span>
+                            Full Stack Web Developer & <span className="text-blue-500">Creative Problem Solver</span>
                         </h3>
 
                         <p className="text-gray-400 mb-8 leading-relaxed text-lg">
-                            I have over 2 years of experience in developing various types of websites, from interactive 
-                            web applications to mobile solutions. My journey in tech is driven by a curiosity for 
-                            how things work and a desire to create seamless user experiences.
+                            With over 2 years of experience in the digital landscape, I specialize in crafting 
+                            high-performance web applications using <span className="text-blue-400">Next.js, TypeScript, and Tailwind CSS</span>. 
+                            My approach combines technical excellence with user-centric design to deliver 
+                            seamless digital experiences that drive engagement and solve real-world problems.
                         </p>
 
                         {/* Personal Details Grid */}
