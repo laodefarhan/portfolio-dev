@@ -61,10 +61,19 @@ const projects = [
     },
     {
         id: 2,
-        title: 'Online Store',
-        description: 'A modern e-commerce platform featuring product management and a clean shopping experience.',
-        image: '/assets/projects/projects-toko-online.jpg',
-        category: 'Full Stack',
+        title: 'Rental Mobil Bangka Belitung',
+        description: 'A professional car rental landing page designed for Bangka Belitung, featuring a sleek and responsive interface built with the Asha Landing Page template to ensure a premium booking experience.',
+        image: '/assets/projects/projects-rb-trans-babel.png',
+        category: 'Web Design',
+        link: 'https://rental-mobil-bangka-belitung-test.vercel.app/',
+        github: '#',
+    },
+    {
+        id: 3,
+        title: 'Klasifikasi Tingkat Kematangan Buah Pisang',
+        description: 'Inovasi cerdas berbasis Computer Vision yang memanfaatkan algoritma YOLOv8 untuk deteksi dan klasifikasi otomatis tingkat kematangan pisang dengan akurasi tinggi secara real-time. Solusi Deep Learning ini dirancang untuk merevolusi proses sortir dan pemantauan kualitas hasil pertanian.',
+        image: '/assets/projects/projects-klasifikasi-tingkat-kematangan-buah-pisang.jpg',
+        category: 'Artificial Intelligence',
         link: '#',
         github: '#',
     }
@@ -262,7 +271,7 @@ export function ResumeSection() {
 
                     {/* Projects Tab */}
                     <TabsContent value="projects" className="mt-0">
-                        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8 max-w-5xl mx-auto">
+                        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
                             {projects.map((project) => (
                                 <motion.div
                                     key={project.id}
@@ -287,11 +296,15 @@ export function ResumeSection() {
                                             "absolute inset-0 bg-blue-600/80 backdrop-blur-sm flex items-center justify-center gap-4 transition-all duration-500",
                                             hoveredProject === project.id ? "opacity-100" : "opacity-0"
                                         )}>
-                                            <Button size="icon" className="rounded-full bg-white text-blue-600 hover:bg-gray-100">
-                                                <ExternalLink size={20} />
+                                            <Button asChild size="icon" className="rounded-full bg-white text-blue-600 hover:bg-gray-100">
+                                                <a href={project.link} target="_blank" rel="noopener noreferrer">
+                                                    <ExternalLink size={20} />
+                                                </a>
                                             </Button>
-                                            <Button size="icon" className="rounded-full bg-white text-blue-600 hover:bg-gray-100">
-                                                <Github size={20} />
+                                            <Button asChild size="icon" className="rounded-full bg-white text-blue-600 hover:bg-gray-100">
+                                                <a href={project.github} target="_blank" rel="noopener noreferrer">
+                                                    <Github size={20} />
+                                                </a>
                                             </Button>
                                         </div>
                                     </div>
@@ -299,10 +312,15 @@ export function ResumeSection() {
                                         <span className="text-[10px] font-bold uppercase tracking-widest text-blue-500 mb-2 block">{project.category}</span>
                                         <h3 className="text-2xl font-bold text-white mb-3 group-hover:text-blue-400 transition-colors">{project.title}</h3>
                                         <p className="text-gray-400 mb-6 line-clamp-2">{project.description}</p>
-                                        <div className="flex items-center gap-2 text-sm font-bold text-white group-hover:gap-4 transition-all duration-300">
+                                        <a 
+                                            href={project.link} 
+                                            target="_blank" 
+                                            rel="noopener noreferrer"
+                                            className="flex items-center gap-2 text-sm font-bold text-white group-hover:gap-4 transition-all duration-300 w-fit"
+                                        >
                                             View Project
                                             <div className="h-[1px] w-12 bg-blue-600" />
-                                        </div>
+                                        </a>
                                     </div>
                                 </motion.div>
                             ))}
