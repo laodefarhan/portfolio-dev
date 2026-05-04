@@ -63,7 +63,7 @@ const projects = [
         id: 2,
         title: 'Rental Mobil Bangka Belitung',
         description: 'A professional car rental landing page designed for Bangka Belitung, featuring a sleek and responsive interface built with the Asha Landing Page template to ensure a premium booking experience.',
-        image: '/assets/projects/projects-rb-trans-babel.png',
+        image: '/assets/projects/projects-rb-trans-babel.jpg',
         category: 'Web Design',
         link: 'https://rental-mobil-bangka-belitung-test.vercel.app/',
         github: '#',
