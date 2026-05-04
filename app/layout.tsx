@@ -72,6 +72,9 @@ export const metadata: Metadata = {
     description: "Showcase of web and mobile development projects by Laode Farhan Fadilah.",
     images: ["/assets/hero-profile-laode-farhan-fadilah.jpg"],
   },
+  verification: {
+    google: "fgpVG3_bGurjC-G9NpzyZDPGfdVSRvv0tANxUvYml9M",
+  },
 };
 
 export default function RootLayout({
