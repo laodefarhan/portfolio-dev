@@ -8,9 +8,9 @@ const personalInfo = [
     { icon: User, label: 'Name', value: 'Laode Farhan Fadilah' },
     { icon: Mail, label: 'Email', value: 'fiklaodefarhanfadilah@gmail.com' },
     { icon: MapPin, label: 'Location', value: 'DKI Jakarta, Indonesia' },
-    { icon: Calendar, label: 'Experience', value: '2+ Years' },
+    { icon: Calendar, label: 'Experience', value: '4+ Years' },
     { icon: GraduationCap, label: 'Education', value: 'Computer Science' },
-    { icon: Code2, label: 'Specialty', value: 'Full Stack Dev' },
+    { icon: Code2, label: 'Specialty', value: 'Software & AI Engineer' },
 ];
 
 const stats = [
@@ -88,14 +88,11 @@ export function AboutSection() {
                         viewport={{ once: true }}
                     >
                         <h3 className="text-2xl font-bold text-white mb-6">
-                            Full Stack Web Developer & <span className="text-blue-500">Creative Problem Solver</span>
+                            Software Engineer & <span className="text-blue-500">AI Engineer</span>
                         </h3>
 
                         <p className="text-gray-400 mb-8 leading-relaxed text-lg">
-                            With over 2 years of experience in the digital landscape, I specialize in crafting 
-                            high-performance web applications using <span className="text-blue-400">Next.js, TypeScript, and Tailwind CSS</span>. 
-                            My approach combines technical excellence with user-centric design to deliver 
-                            seamless digital experiences that drive engagement and solve real-world problems.
+                            With over 4 years of experience, I specialize in building high-performance web applications and innovative AI solutions. My approach combines technical excellence with machine learning to deliver large-scale digital experiences using <span className="text-blue-400">Next.js, TypeScript, Tailwind CSS</span>, and AI.
                         </p>
 
                         {/* Personal Details Grid */}

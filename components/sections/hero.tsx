@@ -21,7 +21,7 @@ export function HeroSection() {
     const [isDeleting, setIsDeleting] = useState(false);
     const [isMounted, setIsMounted] = useState(false);
 
-    const words = useMemo(() => ['Full Stack Developer', 'Creative Freelancer', 'Problem Solver'], []);
+    const words = useMemo(() => ['Software Engineer', 'AI Engineer', 'Problem Solver'], []);
     const typingSpeed = 100;
     const deletingSpeed = 50;
     const pauseTime = 2000;
@@ -100,10 +100,10 @@ export function HeroSection() {
                         </h1>
 
                         <p className="text-lg md:text-xl text-gray-400 mb-10 max-w-2xl mx-auto lg:mx-0 leading-relaxed">
-                            A results-driven <span className="text-gray-200">Junior Full Stack Developer</span> based in Jakarta, specializing in building high-performance 
-                            web applications and modern mobile solutions. I transform complex ideas into 
-                            <span className="text-gray-200"> SEO-friendly, scalable, and visually stunning digital experiences</span> using 
-                            Next.js, React, and Laravel.
+                            A results-oriented <span className="text-gray-200">Software Engineer & AI Engineer</span> in Jakarta, building high-performance 
+                            web applications and intelligent solutions. I transform complex ideas into 
+                            <span className="text-gray-200"> scalable and visually stunning experiences</span> using 
+                            Next.js, Laravel, and Machine Learning.
                         </p>
 
                         <div className="flex flex-wrap gap-4 justify-center lg:justify-start mb-12">
