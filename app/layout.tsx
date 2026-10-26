@@ -15,23 +15,26 @@ const geistMono = Geist_Mono({
 // Metadata SEO-Optimized
 export const metadata: Metadata = {
   title: {
-    default: "Laode F. Fadilah | Full Stack Developer Portfolio",
+    default: "Laode F. Fadilah | Software Engineer & AI Engineer",
     template: "%s | Laode F. Fadilah"
   },
-  description: "Explore the professional portfolio of Laode Farhan Fadilah, a Junior Full Stack Developer specializing in React, Next.js, and Android development. Discover innovative web and mobile solutions.",
+  description: "Portofolio Laode Farhan Fadilah, Software Engineer dan AI Engineer yang membangun aplikasi web modern serta solusi berbasis machine learning dan kecerdasan buatan.",
   keywords: [
     "Laode Farhan Fadilah",
-    "Full Stack Developer Indonesia",
-    "Web Developer Jakarta",
-    "Next.js Developer",
-    "React.js Expert",
-    "Android App Developer",
-    "Junior Web Developer Portfolio",
     "Software Engineer Indonesia",
-    "Pembuatan Website Jakarta",
-    "Jasa Developer Aplikasi",
-    "Portofolio Programmer",
-    "Deep Learning YOLOv8 Project"
+    "AI Engineer Indonesia",
+    "Artificial Intelligence Engineer",
+    "Machine Learning Engineer Indonesia",
+    "Software Engineer Portfolio",
+    "AI Engineer Portfolio",
+    "React.js Developer",
+    "Next.js Developer Indonesia",
+    "TypeScript Developer",
+    "Laravel Developer",
+    "Machine Learning Project",
+    "Solusi Kecerdasan Buatan",
+    "Pengembangan Aplikasi Web",
+    "Portofolio Laode Farhan Fadilah"
   ],
   authors: [{ name: "Laode Farhan Fadilah", url: "https://laodefarhanfadilah.vercel.app/" }],
   creator: "Laode Farhan Fadilah",
@@ -53,23 +56,23 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     locale: 'id_ID',
-    title: "Laode Farhan Fadilah - Full Stack Developer Portfolio",
-    description: "Personal portfolio showcasing expertise in web development (React/Next.js) and mobile solutions. High-quality digital experiences built with precision.",
+    title: "Laode Farhan Fadilah | Software Engineer & AI Engineer",
+    description: "Portofolio Software Engineer dan AI Engineer yang berfokus pada aplikasi web modern, machine learning, dan solusi berbasis kecerdasan buatan.",
     url: "https://laodefarhanfadilah.vercel.app/",
-    siteName: "Laode Farhan Fadilah Portfolio",
+    siteName: "Portofolio Laode Farhan Fadilah",
     images: [
       {
         url: "/assets/hero-profile-laode-farhan-fadilah.jpg",
         width: 1200,
         height: 630,
-        alt: "Laode Farhan Fadilah Portfolio",
+        alt: "Portofolio Laode Farhan Fadilah - Software Engineer dan AI Engineer",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Laode Farhan Fadilah | Full Stack Developer",
-    description: "Showcase of web and mobile development projects by Laode Farhan Fadilah.",
+    title: "Laode Farhan Fadilah | Software Engineer & AI Engineer",
+    description: "Proyek pengembangan perangkat lunak, aplikasi web, dan solusi AI oleh Laode Farhan Fadilah.",
     images: ["/assets/hero-profile-laode-farhan-fadilah.jpg"],
   },
   verification: {
