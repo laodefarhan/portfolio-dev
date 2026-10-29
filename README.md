@@ -2,37 +2,36 @@
 
 Selamat datang di repositori kode sumber website portofolio pribadi saya! 🚀
 
-Saya **Laode Farhan Fadilah**, seorang Software Engineer dan AI Engineer yang memiliki minat besar dalam membangun aplikasi web berkinerja tinggi, solusi berbasis kecerdasan buatan, serta pengalaman digital modern. Saya senang mengubah ide-ide kompleks menjadi produk digital yang fungsional, mudah digunakan, dan menarik secara visual dengan memanfaatkan teknologi modern.
+Saya **Laode Farhan Fadilah**, seorang Software Engineer dan AI Engineer yang berdomisili di DKI Jakarta. Dengan pengalaman lebih dari 4 tahun dan latar belakang Ilmu Komputer, saya berfokus pada pembuatan aplikasi web berkinerja tinggi dan solusi digital yang menjawab kebutuhan nyata. Saya menggabungkan teknologi, machine learning, dan desain yang matang untuk membangun pengalaman digital yang andal dan mudah digunakan.
 
 🌐 **Website Portofolio:** [laodefarhanfadilah.vercel.app](https://laodefarhanfadilah.vercel.app/)
 
 ## 👨‍💻 Tentang Saya
 
-Saya memiliki ketertarikan kuat pada pengembangan perangkat lunak, kecerdasan buatan, dan teknologi web modern. Tujuan saya adalah menciptakan solusi digital yang menggabungkan keunggulan teknis, desain yang matang, dan fungsionalitas yang dapat diterapkan dalam kebutuhan nyata.
+Saya adalah pengembang yang berfokus pada pengembangan perangkat lunak dan solusi AI. Dengan pengalaman lebih dari 4 tahun, saya membangun aplikasi web berkinerja tinggi dan solusi machine learning, serta mengutamakan kualitas teknis, desain yang terarah, dan manfaat praktis bagi pengguna.
 
-Saya berfokus pada pengembangan aplikasi responsif, pembuatan antarmuka pengguna yang intuitif, serta pembangunan sistem yang andal untuk memberikan pengalaman pengguna yang optimal.
+Saya terbiasa mengembangkan pengalaman digital berskala besar menggunakan Next.js, TypeScript, dan Tailwind CSS. Saya juga memiliki latar belakang pengembangan full-stack, sehingga dapat menangani kebutuhan dari antarmuka hingga logika server dan integrasi solusi AI.
 
 ## 🛠️ Teknologi dan Keahlian
 
-Berikut adalah teknologi dan keahlian yang saya gunakan dalam proses pengembangan:
+Berikut teknologi yang tercantum pada portofolio dan saya gunakan dalam pengembangan:
 
-- **Pengembangan Frontend:** React.js, Next.js, TypeScript, dan Tailwind CSS.
-- **Pengembangan Backend:** Laravel, pengembangan sisi server, dan integrasi API.
-- **Kecerdasan Buatan:** Machine Learning dan pengembangan solusi berbasis AI.
-- **Implementasi UI/UX:** Pembuatan antarmuka responsif, aksesibilitas, serta penerjemahan desain menjadi kode.
-- **SEO dan Optimasi Performa:** SEO teknis, optimasi kecepatan, dan penerapan praktik terbaik pengembangan web.
-- **Deployment:** Vercel dan berbagai alur kerja modern untuk publikasi aplikasi web.
+- **Frontend:** HTML, CSS, JavaScript, React, Next.js, Tailwind CSS, dan Bootstrap.
+- **Backend:** PHP dan Laravel.
+- **Basis Data:** MySQL.
+- **Pengembangan dan kolaborasi:** Git.
+- **Spesialisasi:** Pengembangan web full-stack, machine learning, dan solusi berbasis AI.
 
 ## 💼 Layanan dan Keahlian Profesional
 
-Saya menyediakan berbagai layanan pengembangan sesuai dengan kebutuhan proyek, di antaranya:
+Portofolio menampilkan layanan pengembangan digital berikut:
 
-- **Pengembangan Website:** Membangun website dan aplikasi web modern yang responsif serta mudah digunakan.
-- **Pengembangan Aplikasi Mobile:** Mengembangkan aplikasi mobile yang membantu menghubungkan bisnis dengan penggunanya.
-- **Implementasi UI/UX:** Mengubah desain menjadi antarmuka interaktif dengan memperhatikan detail dan konsistensi visual.
-- **Pengembangan Backend:** Membangun logika sisi server, API, dan struktur basis data yang andal.
-- **Optimasi SEO:** Meningkatkan visibilitas website di mesin pencari serta mengoptimalkan performa teknis.
-- **Pengembangan Full-Stack:** Mengelola proses pengembangan aplikasi secara menyeluruh, mulai dari perencanaan hingga deployment dan pemeliharaan.
+- **Pengembangan Web:** Website dan aplikasi web responsif berkinerja tinggi dengan React dan Next.js.
+- **Solusi Mobile:** Pengalaman mobile lintas platform untuk mendekatkan layanan atau brand kepada pengguna.
+- **Implementasi UI/UX:** Menerjemahkan desain menjadi antarmuka interaktif yang presisi dengan perhatian pada aksesibilitas.
+- **Optimasi SEO:** SEO teknis dan peningkatan performa untuk membantu visibilitas di mesin pencari.
+- **Arsitektur Backend:** Logika sisi server dan struktur basis data yang kokoh serta dapat diskalakan.
+- **Pengembangan Full-Stack:** Pengembangan menyeluruh dari konsep dan desain basis data hingga deployment dan pemeliharaan.
 
 ## 🚀 Proyek Unggulan
 
